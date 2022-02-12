@@ -43,6 +43,5 @@ Dependencies - express-react
 
 ```
 | Method | Path |             Purpose             |
-|:---    |:---  |              :---:              |
 |Get     |/     |The Homes Page                   |
 ```
