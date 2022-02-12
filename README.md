@@ -2,16 +2,14 @@
 
 ### SUMMARY
 
-REST RANT is an app where users can review restaurants
-
 ```
-
-
+REST RANT is an app where users can review restaurants
 
 ```
 
 ### User Stories & Wireframes
 
+```
 1 As a standard user
 
 - Navigate to each section of the website
@@ -30,20 +28,15 @@ REST RANT is an app where users can review restaurants
 - Leave a star rating with review
 - Mark weather the comment is a rant
 - Add a picture to the place
-
-```
-
 ```
 
 ### LANGUAGES AND TOOLS
 
+```
 Express | Node.Js
 CSS
 React | JSX
 Dependencies - express-react
-
-```
-
 ```
 
 ### Routes
