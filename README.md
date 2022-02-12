@@ -41,9 +41,6 @@ Dependencies - express-react
 
 ### Routes
 
-```
-
-| Method | Path |             Purpose             |
-|--------|------|---------------------------------|
-|Get     |/     |The Homes Page                   |
-```
+| Method | Path | Purpose        |
+| ------ | ---- | -------------- |
+| Get    | /    | The Homes Page |
