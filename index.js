@@ -7,12 +7,16 @@ const app = express();
 const PORT = process.env.PORT;
 
 // MIDDLEWARE
+app.use(express.json());
+// app.set("views", __dirname + "/views");
 app.use("/places", require("./controllers/places"));
+app.set("view engine", "jsx");
+app.engine("jsx", require("express-react-views").createEngine());
 
 // ROUTES AND LANDING PAGE
 app.get("/", (req, res) => {
   console.log("I am awake");
-  res.send("Home Page");
+  res.render("home");
 });
 
 app.get("*", (req, res) => {
