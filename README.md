@@ -77,3 +77,11 @@ Dependencies - express-react
 | ranting  | Number                |
 | comment  | Sting                 |
 | reviewer | String                |
+
+## CSS
+
+### Color Scheme
+
+|#C3AE8D|
+|#D8F2F0|
+|#296B73|
