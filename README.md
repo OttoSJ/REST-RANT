@@ -41,6 +41,15 @@ Dependencies - express-react
 
 ### Routes
 
-| Method | Path | Purpose        |
-| ------ | ---- | -------------- |
-| Get    | /    | The Homes Page |
+| Method | Path        | Purpose                                                                       |
+| ------ | ----------- | ----------------------------------------------------------------------------- |
+| GET    | /           | The Homes Page                                                                |
+| GET    | /places     | Index page listing all places                                                 |
+| GET    | /places/new | New from for a place                                                          |
+| POST   | /places     | Create a new place                                                            |
+| Get    | /places/:id | Show one place in detail(Associated rants, new rant form, delete rant button) |
+| Get    | /           |                                                                               |
+| Get    | /           |                                                                               |
+| Get    | /           |                                                                               |
+| Get    | /           |                                                                               |
+| Get    | /           |                                                                               |
