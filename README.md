@@ -82,6 +82,8 @@ Dependencies - express-react
 
 ### Color Scheme
 
-|#C3AE8D|
-|#D8F2F0|
-|#296B73|
+| Colors  |
+| ------- |
+| #C3AE8D |
+| #D8F2F0 |
+| #296B73 |
