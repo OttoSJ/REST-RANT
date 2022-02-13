@@ -30,7 +30,7 @@ REST RANT is an app where users can review restaurants
 - Add a picture to the place
 ```
 
-### LANGUAGES AND TOOLS
+## LANGUAGES AND TOOLS
 
 ```
 Express | Node.Js
@@ -41,15 +41,39 @@ Dependencies - express-react
 
 ### Routes
 
-| Method | Path        | Purpose                                                                       |
-| ------ | ----------- | ----------------------------------------------------------------------------- |
-| GET    | /           | The Homes Page                                                                |
-| GET    | /places     | Index page listing all places                                                 |
-| GET    | /places/new | New from for a place                                                          |
-| POST   | /places     | Create a new place                                                            |
-| Get    | /places/:id | Show one place in detail(Associated rants, new rant form, delete rant button) |
-| Get    | /           |                                                                               |
-| Get    | /           |                                                                               |
-| Get    | /           |                                                                               |
-| Get    | /           |                                                                               |
-| Get    | /           |                                                                               |
+| Method | Path                     | Purpose                                                                       |
+| ------ | ------------------------ | ----------------------------------------------------------------------------- |
+| GET    | /                        | The Homes Page                                                                |
+| GET    | /places                  | Index page listing all places                                                 |
+| GET    | /places/new              | New from for a place                                                          |
+| POST   | /places                  | Create a new place                                                            |
+| GET    | /places/:id              | Show one place in detail(Associated rants, new rant form, delete rant button) |
+| GET    | /places/:id/edit         | Edit form for a pace                                                          |
+| PUT    | /places/:id              | Make changes to existing place                                                |
+| DELETE | /places/:id              | Delete a place                                                                |
+| POST   | /places/:id/rant         | Add rant to a place                                                           |
+| DELETE | /places/:id/rant/:rantId | Delete a rant                                                                 |
+
+## Database
+
+### Places
+
+| Field   | Type      |
+| ------- | --------- |
+| \_id    | Object ID |
+| name    | String    |
+| city    | String    |
+| state   | String    |
+| cusines | String    |
+| pic     | String    |
+
+### Rants
+
+| Field    | Type                  |
+| -------- | --------------------- |
+| \_id     | Object ID             |
+| place_id | ref(places) Object_id |
+| rant     | Boolean               |
+| ranting  | Number                |
+| comment  | Sting                 |
+| reviewer | String                |
