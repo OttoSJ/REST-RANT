@@ -1,5 +1,4 @@
 const React = require("react");
-const modeFix = require("tar/lib/mode-fix");
 const Def = require("../default");
 
 function showPage() {
