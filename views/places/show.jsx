@@ -1,7 +1,7 @@
 const React = require("react");
 const Def = require("../default");
 
-function showPage() {
+function show() {
   return (
     <Def>
       <div>
@@ -13,4 +13,4 @@ function showPage() {
   );
 }
 
-module.exports = showPage;
+module.exports = show;
