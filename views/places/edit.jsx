@@ -1,7 +1,7 @@
 const React = require("react");
 const Def = require("../default");
 
-function editPage() {
+function edit_form() {
   return (
     <div>
       <Def>
@@ -13,4 +13,4 @@ function editPage() {
   );
 }
 
-module.exports = editPage;
+module.exports = edit_form;

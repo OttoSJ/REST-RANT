@@ -15,8 +15,8 @@ main {
 }
 
 img {
-  height: 60%;
-  width: 60%;
+  height: 20rem;
+  width: 25rem;
 }
 
 #home-page-pic {
@@ -27,6 +27,8 @@ img {
 nav {
   background-color: cornflowerblue;
   padding: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 nav ul {
@@ -47,5 +49,9 @@ nav a {
 
 nav a:hover {
   color: pink;
+  text-decoration: none;
+}
+
+a {
   text-decoration: none;
 }
