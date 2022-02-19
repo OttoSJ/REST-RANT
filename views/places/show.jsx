@@ -19,6 +19,22 @@ function show(data) {
                 Located in {data.place.city}, {data.place.state} and serving{" "}
                 {data.place.cuisines}
               </p>
+              <div className="d-flex justify-content-center">
+                <a
+                  href={`/places/${data.id}/edit`}
+                  className="btn btn-warning mx-4"
+                >
+                  Edit <i class="fas fa-trash-alt"></i>
+                </a>
+                <form
+                  method="POST"
+                  action={`/places/${data.id}?_method=DELETE`}
+                >
+                  <button type="submit" className="btn btn-danger btn-md">
+                    Delete
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
           <div className="mb-3">
@@ -26,16 +42,6 @@ function show(data) {
             <p>No comments yet!</p>
           </div>
         </main>
-        <div className="d-flex justify-content-evenly">
-          <a href={`/places/${data.id}/edit`} className="btn btn-warning">
-            Edit
-          </a>
-          <form method="POST" action={`/places/${data.id}?_method=DELETE`}>
-            <button type="submit" className="btn btn-danger">
-              Delete
-            </button>
-          </form>
-        </div>
       </div>
     </Def>
   );

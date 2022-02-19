@@ -27,8 +27,8 @@ img {
 nav {
   background-color: cornflowerblue;
   padding: 10px;
-  margin-right: 20px;
-  margin-left: 20px;
+  /* margin-right: 20px;
+  margin-left: 20px; */
 }
 
 nav ul {
