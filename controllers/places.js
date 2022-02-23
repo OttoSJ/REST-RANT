@@ -1,5 +1,5 @@
 // DENPENDENCIES
-const e = require("express");
+// const e = require("express");
 const express = require("express");
 const places = require("../models/places");
 
@@ -7,6 +7,7 @@ const places = require("../models/places");
 const router = express.Router();
 
 // GET PLACES
+
 router.get("/", (req, res) => {
   res.render("places/index", { places });
 });
