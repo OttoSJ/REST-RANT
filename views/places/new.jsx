@@ -47,6 +47,15 @@ function new_form() {
                 required
               />
             </div>
+            <div className="form-group">
+              <label htmlFor="founded">Founded Year</label>
+              <input
+                className="form-control"
+                id="founded"
+                name="founded"
+                type="text"
+              />
+            </div>
             <input
               className="btn btn-primary mb-5 mt-5"
               type="submit"

@@ -5,7 +5,7 @@ const methodOverride = require("method-override");
 
 // CONFIGURATION
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 // VIEW ENGINE
 app.set("views", __dirname + "/views");
