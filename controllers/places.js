@@ -6,7 +6,7 @@ const places = require("../models/places");
 // CONFIGURATION
 const router = express.Router();
 const db = require("../models");
-const { templateSettings } = require("lodash");
+// const { templateSettings } = require("lodash");
 
 // GET PLACES
 
@@ -19,8 +19,6 @@ router.get("/", (req, res) => {
       console.log(err);
       res.render("error404");
     });
-
-  // res.send("GET places stub");
 });
 
 router.post("/", (req, res) => {
@@ -32,7 +30,6 @@ router.post("/", (req, res) => {
       console.log("err", err);
       res.render("error404");
     });
-  // res.send(" POST /places stub");
 });
 
 router.get("/new", (req, res) => {
