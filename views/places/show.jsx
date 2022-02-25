@@ -9,22 +9,23 @@ function show(data) {
           <div className="row">
             <div className="col-sm-6">
               <img className="m-4" src={data.place.pic} alt={data.place.name} />
+              <h3 className="text-center">
+                Located in {data.place.city}, {data.place.state}
+              </h3>
             </div>
             <div className="col-sm-6">
               <h2 className="m-4">{data.place.name} </h2>
               <h3>Rating</h3>
               <p>Not Rated</p>
-              <h3>Description</h3>
-              <p className="text-center">
-                Located in {data.place.city}, {data.place.state} and serving{" "}
-                {data.place.cuisines}
-              </p>
+              <h2>Description</h2>
+              <h3>{data.place.showEstablished()}</h3>
+              <h4>Serving {data.place.cuisines}</h4>
               <div className="d-flex justify-content-center">
                 <a
                   href={`/places/${data.id}/edit`}
                   className="btn btn-warning mx-4"
                 >
-                  Edit <i class="fas fa-trash-alt"></i>
+                  Edit <i className="fas fa-trash-alt"></i>
                 </a>
                 <form
                   method="POST"

@@ -27,6 +27,15 @@ router.post("/", (req, res) => {
       res.redirect("/places");
     })
     .catch((err) => {
+      if (err && err.name == "ValidationError") {
+        let message = "Validation Error:";
+        for (var field in err.errors) {
+          message += `${field} was ${err.errors[field].value}. `;
+          message += `${err.errors[field].message}`;
+        }
+        console.log("Validation error message", message);
+        res.render("places/new", { message });
+      }
       console.log("err", err);
       res.render("error404");
     });
@@ -36,7 +45,7 @@ router.get("/new", (req, res) => {
   res.render("places/new");
 });
 
-router.get("/id", (req, res) => {
+router.get("/:id", (req, res) => {
   db.Place.findById(req.params.id)
     .then((place) => {
       res.render("places/show", { place });
@@ -45,7 +54,6 @@ router.get("/id", (req, res) => {
       console.log("err", err);
       res.render("error404");
     });
-  res.render("GET /places/:id stub");
 });
 
 router.put("/:id", (req, res) => {
@@ -53,7 +61,8 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  res.send("DELETE /places/:id stub");
+  const place = db.Place.findById(req.params.id);
+  res.redirect("/places");
 });
 
 router.get("/:id/edit", (req, res) => {
