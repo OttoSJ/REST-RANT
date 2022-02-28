@@ -2,6 +2,22 @@ const React = require("react");
 const Def = require("../default");
 
 function show(data) {
+  let comments = <h3 className="inactive">No comments yet!</h3>;
+  if (data.place.comments.length) {
+    comments = data.place.comments.map((c) => {
+      return (
+        <div className="border">
+          <h2 className="rant">{c.rant ? "Rant! 😡 " : "Rave! 😻' "} </h2>
+          <h4>{c.content}</h4>
+          <h3>
+            <strong>- {c.author} </strong>
+          </h3>
+
+          <h4>Rating: {c.stars} </h4>
+        </div>
+      );
+    });
+  }
   return (
     <Def>
       <div>
@@ -22,14 +38,14 @@ function show(data) {
               <h4>Serving {data.place.cuisines}</h4>
               <div className="d-flex justify-content-center">
                 <a
-                  href={`/places/${data.id}/edit`}
+                  href={`/places/${data.place.id}/edit`}
                   className="btn btn-warning mx-4"
                 >
                   Edit <i className="fas fa-trash-alt"></i>
                 </a>
                 <form
                   method="POST"
-                  action={`/places/${data.id}?_method=DELETE`}
+                  action={`/places/${data.place.id}?_method=DELETE`}
                 >
                   <button type="submit" className="btn btn-danger btn-md">
                     Delete
@@ -38,9 +54,10 @@ function show(data) {
               </div>
             </div>
           </div>
+          <hr />
           <div className="mb-3">
             <h2> Comments </h2>
-            <p>No comments yet!</p>
+            {comments}
           </div>
         </main>
       </div>

@@ -1,15 +1,12 @@
 // DENPENDENCIES
-// const e = require("express");
 const express = require("express");
-const places = require("../models/places");
 
 // CONFIGURATION
+const places = require("../models/places");
 const router = express.Router();
 const db = require("../models");
-// const { templateSettings } = require("lodash");
 
 // GET PLACES
-
 router.get("/", (req, res) => {
   db.Place.find()
     .then((places) => {
@@ -21,6 +18,7 @@ router.get("/", (req, res) => {
     });
 });
 
+// POST/CREATE ROUTE
 router.post("/", (req, res) => {
   db.Place.create(req.body)
     .then(() => {
@@ -41,12 +39,15 @@ router.post("/", (req, res) => {
     });
 });
 
+// ADD PLACES ROUTE
 router.get("/new", (req, res) => {
   res.render("places/new");
 });
 
+// SHOW PLACE ROUTE
 router.get("/:id", (req, res) => {
   db.Place.findById(req.params.id)
+    .populate("comments")
     .then((place) => {
       res.render("places/show", { place });
     })
@@ -56,17 +57,37 @@ router.get("/:id", (req, res) => {
     });
 });
 
+//  UPDATE ROUTE
 router.put("/:id", (req, res) => {
-  res.send("PUT /places/:id stub");
+  db.Place.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(
+    () => {
+      res.redirect(`/places/${req.params.id}`);
+    }
+  );
 });
 
+// DELETE ROUTE
 router.delete("/:id", (req, res) => {
-  const place = db.Place.findById(req.params.id);
-  res.redirect("/places");
+  db.Place.findByIdAndDelete(req.params.id)
+    .then((place) => {
+      res.redirect("/places");
+    })
+    .catch((err) => {
+      console.log("err", err);
+      res.render("error404");
+    });
 });
 
+// EDIT ROUTE
 router.get("/:id/edit", (req, res) => {
-  res.send("GET edit form stub");
+  db.Place.findById(req.params.id)
+    .then((place) => {
+      res.render("places/edit", { place });
+    })
+    .catch((err) => {
+      console.log("err", err);
+      res.render("error404");
+    });
 });
 
 router.post("/:id/rant", (req, res) => {
@@ -78,5 +99,3 @@ router.delete("/:id/rant/:rantId", (req, res) => {
 });
 
 module.exports = router;
-
-// Delete button not working in the sense it will not redirect or delete.
