@@ -90,9 +90,22 @@ router.get("/:id/edit", (req, res) => {
     });
 });
 
-router.post("/:id/rant", (req, res) => {
-  res, send("GET /places/:id/rant stub");
+// COMMENT ROUTE
+router.post("/:id/comment", (req, res) => {
+  console.log(req.body);
+  db.Place.findById(req.params.id)
+    .then((place) => {
+      db.Comment.create(req.body);
+      place.comments.push(comment.id);
+      place.save().then(() => {
+        res.redirect(`/places/${req.params.id}`);
+      });
+    })
+    .catch((err) => {
+      res.render("error404");
+    });
 });
+// req.body.rant = req.body.rant ? true : false;
 
 router.delete("/:id/rant/:rantId", (req, res) => {
   res.send("GET places/:id/rant/:rantId stub");

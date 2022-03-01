@@ -30,7 +30,7 @@ function edit_form(data) {
                 />
               </div>
             </div>
-            <div className="row ">
+            <div className="row">
               <div className="form-group col-sm-6">
                 <label htmlFor="city">City</label>
                 <input
