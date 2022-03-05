@@ -13,12 +13,17 @@ app.set("view engine", "jsx");
 // This app.engine will not be necessary in React.
 app.engine("jsx", require("express-react-views").createEngine());
 
+console.log("");
+
 // MIDDLEWARE
 app.use(express.json());
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-app.use("/places", require("./controllers/places"));
+
+// Places Route
+const placesControllers = require("./controllers/places");
+app.use("/places", placesControllers);
 
 //  ROUTES LANDING PAGE
 app.get("/", (req, res) => {

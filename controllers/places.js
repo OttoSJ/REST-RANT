@@ -59,11 +59,14 @@ router.get("/:id", (req, res) => {
 
 //  UPDATE ROUTE
 router.put("/:id", (req, res) => {
-  db.Place.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(
-    () => {
+  db.Place.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then(() => {
       res.redirect(`/places/${req.params.id}`);
-    }
-  );
+    })
+    .catch((err) => {
+      console.log("err", err);
+      res.render("error404");
+    });
 });
 
 // DELETE ROUTE
@@ -91,8 +94,8 @@ router.get("/:id/edit", (req, res) => {
 });
 
 // COMMENT ROUTE
-router.post("/:id/comment", (req, res) => {
-  console.log(req.body);
+router.post("/:id", (req, res) => {
+  req.body.rant = req.body.rant ? true : false;
   db.Place.findById(req.params.id)
     .then((place) => {
       db.Comment.create(req.body)
@@ -110,7 +113,6 @@ router.post("/:id/comment", (req, res) => {
       res.render("error404");
     });
 });
-// req.body.rant = req.body.rant ? true : false;
 
 router.delete("/:id/rant/:rantId", (req, res) => {
   res.send("GET places/:id/rant/:rantId stub");
